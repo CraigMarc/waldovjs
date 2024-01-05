@@ -1,0 +1,15 @@
+{
+  "name": "waldovjs",
+  "version": "1.0.0",
+  "description": "waldo vanilla js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cm",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
