@@ -3,6 +3,13 @@ body {
 }
 /*
 .waldoPic {
-    height: 90%;
-    width: 90%;
+    height: 10px;
+    width: 10px;
 }*/
+
+#container {
+   
+    height: 1000px;
+    width: 1000px;
+    background-image: url(./images/waldo2.jpg)
+}
