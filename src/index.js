@@ -39,7 +39,9 @@ function imageCoor(e) {
   let [x, y] = coord
    
   try{
-  const response = await fetch('http://localhost:3000/game?char_name=waldo&x=1200&y=900')
+  //const response = await fetch('http://localhost:3000/game?char_name=waldo&x=1200&y=900')
+
+  const response = await fetch(`http://localhost:3000/game?char_name=${name}&x=${x}&y=${y}`)
 
   const gameData = await response.json();
 console.log(gameData)
