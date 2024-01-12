@@ -7,9 +7,14 @@ body {
     width: 10px;
 }*/
 
+.svgContainer {
+   
+}
+
 #container {
    
-    height: 1000px;
-    width: 1000px;
-    background-image: url(./images/waldo2.jpg)
+    height: 2000px;
+    width: 2000px;
+    background-image: url(./images/waldo2.jpg);
+    background-size: 100% 100%;
 }
