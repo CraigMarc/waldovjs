@@ -27,9 +27,34 @@ pic.addEventListener('click', imageCoor)
 function imageCoor(e) {
   
   let coord = [e.offsetX, e.offsetY]
+  
   addCircle(coord)
   addMenu(coord)
+  //checkCoord(coord)
 }
+
+//async function checkCoord(name, coord) {
+  const checkCoord = async (name, coord) => {
+   
+  let [x, y] = coord
+   
+  try{
+  const response = await fetch('http://localhost:3000/game?char_name=waldo&x=1200&y=900')
+
+  const gameData = await response.json();
+console.log(gameData)
+//processData(forecastData)
+    //return  processData(gameData, unit)
+  }
+  
+  catch (error) {
+      console.error("There has been a problem with your fetch operation:", error);
+    //add error message to dom
+    //errorDisplay()
+      }
+}
+
+export default checkCoord;
 
 
 

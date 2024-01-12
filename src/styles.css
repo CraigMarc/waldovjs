@@ -21,6 +21,6 @@ body {
     height: 80px;
 }
 
-.waldo:hover, .wizard:hover, .wilma:hover{
+.button:hover{
     background-color: gray;
 } 
