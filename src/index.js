@@ -4,6 +4,7 @@ import Image1 from './images/waldo.jpg'
 
 
 //get rid of ***********
+/*
 function component() {
   const element = document.createElement('div');
 
@@ -14,7 +15,7 @@ function component() {
 
 
 
-document.body.appendChild(component());
+document.body.appendChild(component());*/
 
 /*add event listener*/
 const pic = document.getElementById('container');
@@ -26,6 +27,7 @@ function imageCoor(e) {
   
   let coord = [e.offsetX, e.offsetY]
   addCircle(coord)
+  addMenu()
 }
 
 const addCircle = (coord) => {
@@ -49,19 +51,22 @@ element.appendChild(circle)
   
 }
 
-const element = document.createElement('div');
+const addMenu = () => { 
 
-const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+const menuContainer = document.createElement('div');
+menuContainer.classList.add('menuContainer');
+const waldo = document.createElement('div');
+waldo.classList.add('waldo');
+waldo.textContent = "Waldo"
+const wizard = document.createElement('div');
+wizard.classList.add('wizard');
+wizard.textContent = "Wizard"
+const wilma = document.createElement('div');
+wilma.classList.add('wilma');
+wilma.textContent = "Wilma"
+menuContainer.appendChild(waldo)
+menuContainer.appendChild(wizard)
+menuContainer.appendChild(wilma)
 
-circle.setAttribute('cx', "60")
-circle.setAttribute('cy', "60")
-circle.setAttribute('r', "30")
-circle.setAttribute('stroke', "black")
-circle.setAttribute('stroke-width', "3")
-circle.setAttribute('fill', "none")
-
-svg.appendChild(circle)
-element.appendChild(svg);
-
-document.body.appendChild(element);
+document.body.appendChild(menuContainer)
+}

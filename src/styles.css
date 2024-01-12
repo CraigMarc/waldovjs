@@ -1,5 +1,5 @@
 body {
-    color: red;
+   
 }
 /*
 .waldoPic {
@@ -18,3 +18,13 @@ body {
     background-image: url(./images/waldo2.jpg);
     background-size: 100% 100%;
 }
+
+.menuContainer {
+    border: solid;
+    width: 200px;
+    height: 80px;
+}
+
+.waldo:hover, .wizard:hover, .wilma:hover{
+    background-color: gray;
+} 
