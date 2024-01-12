@@ -27,7 +27,7 @@ function imageCoor(e) {
   
   let coord = [e.offsetX, e.offsetY]
   addCircle(coord)
-  addMenu()
+  addMenu(coord)
 }
 
 const addCircle = (coord) => {
@@ -51,10 +51,15 @@ element.appendChild(circle)
   
 }
 
-const addMenu = () => { 
+const addMenu = (coord) => { 
+  let [x, y] = coord
+  
 
 const menuContainer = document.createElement('div');
 menuContainer.classList.add('menuContainer');
+menuContainer.style.position = 'absolute';
+menuContainer.style.left = x + 50 + "px";
+menuContainer.style.top = y + 20 + "px";
 const waldo = document.createElement('div');
 waldo.classList.add('waldo');
 waldo.textContent = "Waldo"
