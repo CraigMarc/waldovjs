@@ -3,6 +3,7 @@ import myName from './myName';
 import Image1 from './images/waldo.jpg'
 import addMenu from './addMenu';
 import addCircle from './addCircle';
+import addMessage from './addMessage'
 
 //get rid of ***********
 /*
@@ -61,27 +62,7 @@ const checkCoord = async (name, coord) => {
   }
 }
 
-// add message
 
-const addMessage = (coord, message, name) => {
-  
-  let [x, y] = coord
-console.log(x)
-  const element = document.createElement('div');
-  if (message == false) {
-    element.textContent = "Try Again"
-  }
-  if (message == true) {
-    element.textContent = `You Found ${name}`
-  }
-  element.classList.add('message');
-  element.style.position = 'absolute';
-  element.style.left = x + 150 + "px";
-  element.style.top = y + 100 + "px";
-
-  document.body.appendChild(element)
-
-}
 
 export {
   checkCoord,

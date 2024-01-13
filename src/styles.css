@@ -19,6 +19,7 @@ body {
     border: solid;
     width: 200px;
     height: 80px;
+    background-color: white;
 }
 
 .button:hover{
