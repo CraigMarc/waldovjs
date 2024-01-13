@@ -25,38 +25,66 @@ pic.addEventListener('click', imageCoor)
 //get coordinate of click
 
 function imageCoor(e) {
-  
+
   let coord = [e.offsetX, e.offsetY]
-  
+
   addCircle(coord)
   addMenu(coord)
-  //checkCoord(coord)
+
 }
 
-//async function checkCoord(name, coord) {
-  const checkCoord = async (name, coord) => {
-   
+//make api call to check coord
+
+const checkCoord = async (name, coord) => {
+
   let [x, y] = coord
-   
-  try{
-  //const response = await fetch('http://localhost:3000/game?char_name=waldo&x=1200&y=900')
+  console.log(x)
+  console.log(y)
 
-  const response = await fetch(`http://localhost:3000/game?char_name=${name}&x=${x}&y=${y}`)
+  try {
 
-  const gameData = await response.json();
-console.log(gameData)
-//processData(forecastData)
-    //return  processData(gameData, unit)
+    const response = await fetch(`http://localhost:3000/game?char_name=${name}&x=${x}&y=${y}`)
+
+    const gameData = await response.json();
+    console.log(gameData.message)
+
+    let message = gameData.message
+
+    addMessage(coord, message, name)
+
   }
-  
+
   catch (error) {
-      console.error("There has been a problem with your fetch operation:", error);
+    console.error("There has been a problem with your fetch operation:", error);
     //add error message to dom
     //errorDisplay()
-      }
+  }
 }
 
-export default checkCoord;
+// add message
 
+const addMessage = (coord, message, name) => {
+  
+  let [x, y] = coord
+console.log(x)
+  const element = document.createElement('div');
+  if (message == false) {
+    element.textContent = "Try Again"
+  }
+  if (message == true) {
+    element.textContent = `You Found ${name}`
+  }
+  element.classList.add('message');
+  element.style.position = 'absolute';
+  element.style.left = x + 150 + "px";
+  element.style.top = y + 100 + "px";
 
+  document.body.appendChild(element)
+
+}
+
+export {
+  checkCoord,
+
+};
 

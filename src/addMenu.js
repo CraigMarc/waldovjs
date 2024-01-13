@@ -1,4 +1,9 @@
-import checkCoord from './index';
+//import checkCoord from './index';
+import {
+  checkCoord,
+  
+} from "./index";
+
 
 const addMenu = (coord) => { 
     let [x, y] = coord
@@ -35,6 +40,7 @@ select.forEach((button) => {
 
     button.addEventListener('click', check)
 })
+
 function check (e) {
   
   checkCoord(e.target.id, coord)
@@ -43,3 +49,4 @@ function check (e) {
   }
 
   export default addMenu;
+ 
