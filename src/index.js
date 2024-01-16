@@ -19,8 +19,18 @@ function imageCoor(e) {
 
   let coord = [e.offsetX, e.offsetY]
 
+  let charArray = ['waldo', 'wenda', 'wizard']
+  const charFoundArray = currentGame.allData.map((x) => x.character);
+      
+// get array with remaining characters to add to the menu
+
+const menuArray = charArray.filter(function (x) {
+  return charFoundArray.indexOf(x) < 0;
+});
+ 
+
   addCircle(coord)
-  addMenu(coord)
+  addMenu(coord, menuArray)
 
 }
 
@@ -40,6 +50,11 @@ const checkCoord = async (name, coord) => {
     if (message == true) {
       currentGame.newData(name, x, y)
       console.log(currentGame.allData)
+      
+      if (currentGame.allData.length == 3) {
+        gameWon()
+
+      }
     }
  
     addMessage(coord, message, name)
@@ -53,11 +68,15 @@ const checkCoord = async (name, coord) => {
   }
 }
 
+const gameWon = () => {
+  console.log('you win')
+}
+
 
 
 
 export {
   checkCoord,
-
+  currentGame,
 };
 

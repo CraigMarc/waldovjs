@@ -1,65 +1,65 @@
 //import checkCoord from './index';
 import {
   checkCoord,
-  
+
 } from "./index";
 
+import GameStorage from "./gameStorage";
 
-const addMenu = (coord) => { 
-    let [x, y] = coord
-    
-  
+
+const addMenu = (coord, menuArray) => {
+  let [x, y] = coord
+  console.log(menuArray)
+
   const menuContainer = document.createElement('div');
   menuContainer.classList.add('menuContainer');
   menuContainer.style.position = 'absolute';
   if (x < 1500) {
-  menuContainer.style.left = x + 50 + "px";
-  menuContainer.style.top = y + 20 + "px";
+    menuContainer.style.left = x + 50 + "px";
+    menuContainer.style.top = y + 20 + "px";
   }
   else {
     menuContainer.style.left = x - 240 + "px";
-  menuContainer.style.top = y + 20 + "px";
+    menuContainer.style.top = y + 20 + "px";
   }
-  const waldo = document.createElement('div');
-  waldo.classList.add('button');
-  waldo.textContent = "Waldo"
-  waldo.id = 'waldo';
-  const wizard = document.createElement('div');
-  wizard.classList.add('button');
-  wizard.textContent = "Wizard"
-  wizard.id = 'wizard';
-  const wenda = document.createElement('div');
-  wenda.classList.add('button');
-  wenda.textContent = "Wenda"
-  wenda.id = 'wenda';
-  menuContainer.appendChild(waldo)
-  menuContainer.appendChild(wizard)
-  menuContainer.appendChild(wenda)
-  
+ 
+
+  const addMenuItems = () => {
+    for (let i = 0; i < menuArray.length; i++) {
+      
+      const name = document.createElement('div');
+      name.classList.add('button');
+      name.textContent = menuArray[i]
+      name.id = menuArray[i];
+      menuContainer.appendChild(name)
+    }
+  }
+
+  addMenuItems()
+
   document.body.appendChild(menuContainer)
 
   // event listener for drop down
 
-const select = document.querySelectorAll('.button');
+  const select = document.querySelectorAll('.button');
 
-select.forEach((button) => {
+  select.forEach((button) => {
 
     button.addEventListener('click', check)
-})
+  })
 
-function check (e) {
-  
-  checkCoord(e.target.id, coord)
-  menuContainer.remove()
-  const circle = document.getElementById("circle")
-  circle.remove()
+  function check(e) {
 
-  
+    checkCoord(e.target.id, coord)
+    menuContainer.remove()
+    const circle = document.getElementById("circle")
+    circle.remove()
 
-}
+
 
   }
 
- 
-  export default addMenu;
- 
+}
+
+
+export default addMenu;
