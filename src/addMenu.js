@@ -12,8 +12,14 @@ const addMenu = (coord) => {
   const menuContainer = document.createElement('div');
   menuContainer.classList.add('menuContainer');
   menuContainer.style.position = 'absolute';
+  if (x < 1500) {
   menuContainer.style.left = x + 50 + "px";
   menuContainer.style.top = y + 20 + "px";
+  }
+  else {
+    menuContainer.style.left = x - 240 + "px";
+  menuContainer.style.top = y + 20 + "px";
+  }
   const waldo = document.createElement('div');
   waldo.classList.add('button');
   waldo.textContent = "Waldo"
