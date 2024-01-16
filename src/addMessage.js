@@ -3,7 +3,7 @@
 const addMessage = (coord, message, name) => {
   
     let [x, y] = coord
-  console.log(x)
+ 
     const element = document.createElement('div');
     element.id = 'message';
     if (message == false) {
@@ -25,7 +25,7 @@ const addMessage = (coord, message, name) => {
       element.remove()
     }
 
-    
+
   }
 
   export default addMessage;

@@ -5,19 +5,35 @@ import addMenu from './addMenu';
 import addCircle from './addCircle';
 import addMessage from './addMessage'
 
-//get rid of ***********
-/*
-function component() {
-  const element = document.createElement('div');
 
-  // use your function!
-  element.textContent = myName('Craig');
-  return element;
+class GameData {
+  constructor(character, x, y) {
+    this.character = character
+    this.x = x
+    this.y = y
+  }
+  
 }
 
+class GameStorage {
+  constructor(){
+    this.charArray = []
+  }
+  // create a new player and save it in the collection
+  newData(character, x, y){
+    let gd = new GameData(character, x, y)
+    this.charArray.push(gd)
+    return this.charArray
+  }
+  
+  get allData(){
+    return this.charArray
+  }
 
+}
 
-document.body.appendChild(component());*/
+let currentGame = new GameStorage
+
 
 /*add event listener*/
 const pic = document.getElementById('container');
@@ -39,20 +55,21 @@ function imageCoor(e) {
 const checkCoord = async (name, coord) => {
 
   let [x, y] = coord
-  console.log(x)
-  console.log(y)
 
   try {
 
     const response = await fetch(`http://localhost:3000/game?char_name=${name}&x=${x}&y=${y}`)
 
     const gameData = await response.json();
-    console.log(gameData.message)
 
     let message = gameData.message
-
+    if (message == true) {
+      currentGame.newData(name, x, y)
+      console.log(currentGame.allData)
+    }
+ 
     addMessage(coord, message, name)
-    
+
   }
 
   catch (error) {
@@ -61,6 +78,7 @@ const checkCoord = async (name, coord) => {
     //errorDisplay()
   }
 }
+
 
 
 
