@@ -52,7 +52,7 @@ const checkCoord = async (name, coord) => {
     let message = gameData.message
 
     addMessage(coord, message, name)
-
+    
   }
 
   catch (error) {

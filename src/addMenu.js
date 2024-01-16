@@ -50,9 +50,16 @@ select.forEach((button) => {
 function check (e) {
   
   checkCoord(e.target.id, coord)
+  menuContainer.remove()
+  const circle = document.getElementById("circle")
+  circle.remove()
+
+  
+
 }
 
   }
 
+ 
   export default addMenu;
  
