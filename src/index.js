@@ -7,7 +7,10 @@ import addMessage from './addMessage'
 import GameStorage from './gameStorage'
 import addPic from './addPic'
 import startGame from './startGame';
+import PlayerStorage from './playerData';
+import highScoreForm from './highScoreForm';
 
+let currentPlayer = new PlayerStorage
 let currentGame = new GameStorage
 
 
@@ -22,6 +25,31 @@ function startNewGame (e)  {
   startRemove.remove()
   addPic()
   picListener()
+  startTimer()
+}
+
+function startTimer () {
+  let uuid = self.crypto.randomUUID();
+  currentPlayer.newData(uuid)
+  startApi(uuid)
+}
+
+async function startApi (uuid) {
+
+  try {
+
+    const response = await fetch(`http://localhost:3000/game/start?id=${uuid}`)
+
+    const startData = await response.json();
+
+      
+    }
+
+  catch (error) {
+    console.error("There has been a problem with your fetch operation:", error);
+    //add error message to dom
+    //errorDisplay()
+  }
 }
 
 
@@ -66,10 +94,9 @@ const checkCoord = async (name, coord) => {
     let message = gameData.message
     if (message == true) {
       currentGame.newData(name, x, y)
-      console.log(currentGame.allData)
-      
+     
       if (currentGame.allData.length == 3) {
-        gameWon()
+        gameWon(coord)
 
       }
     }
@@ -85,9 +112,38 @@ const checkCoord = async (name, coord) => {
   }
 }
 
-const gameWon = () => {
-  console.log('you win')
+const gameWon = async (coord) => {
+ 
+ //console.log(currentPlayer.allData.uuid)
+
+  
+  try {
+
+    const response = await fetch(`http://localhost:3000/game/end?id=${currentPlayer.allData.uuid}`)
+
+    const stopData = await response.json();
+    
+      if (stopData.message == false) {
+        console.log("you win")
+      }
+      else {
+        highScoreForm(coord)
+        console.log('best score')
+      }
+
+
+    }
+
+  catch (error) {
+    console.error("There has been a problem with your fetch operation:", error);
+    //add error message to dom
+    //errorDisplay()
+  }
+
+
 }
+
+
 
 
 
