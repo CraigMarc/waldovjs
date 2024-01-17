@@ -9,7 +9,7 @@ import GameStorage from "./gameStorage";
 
 const addMenu = (coord, menuArray) => {
   let [x, y] = coord
-  console.log(menuArray)
+  
 
   const menuContainer = document.createElement('div');
   menuContainer.classList.add('menuContainer');

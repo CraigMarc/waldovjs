@@ -5,8 +5,11 @@ import addMenu from './addMenu';
 import addCircle from './addCircle';
 import addMessage from './addMessage'
 import GameStorage from './gameStorage'
+import addPic from './addPic'
 
 let currentGame = new GameStorage
+
+addPic()
 
 
 /*add event listener*/
