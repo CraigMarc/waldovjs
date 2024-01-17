@@ -1,6 +1,7 @@
 const addPic = () => {
 
     const picContainer = document.createElement('div');
+    picContainer.id = 'picContainer'
     picContainer.classList.add('svgContainer');
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
    
