@@ -6,16 +6,30 @@ import addCircle from './addCircle';
 import addMessage from './addMessage'
 import GameStorage from './gameStorage'
 import addPic from './addPic'
+import startGame from './startGame';
 
 let currentGame = new GameStorage
 
-addPic()
+
+//start game and add event listener
+startGame()
+const start = document.getElementById('button');
+start.addEventListener('click', startNewGame)
+
+function startNewGame (e)  {
+
+  const startRemove = document.getElementById('buttonContainer');
+  startRemove.remove()
+  addPic()
+  picListener()
+}
 
 
 /*add event listener*/
+function picListener() {
 const pic = document.getElementById('container');
 pic.addEventListener('click', imageCoor)
-
+}
 //get coordinate of click
 
 function imageCoor(e) {
