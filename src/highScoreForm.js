@@ -5,6 +5,7 @@ const highScoreForm = (coord) => {
   //create form
     const form = document.createElement('form');
     form.action = ''
+    form.id = 'form'
     form.style.position = 'absolute';
     form.style.left = x  + "px";
     form.style.top = y + "px";

@@ -128,6 +128,7 @@ const gameWon = async (coord) => {
       }
       else {
         highScoreForm(coord)
+        formEvent()
         console.log('best score')
       }
 
@@ -143,8 +144,49 @@ const gameWon = async (coord) => {
 
 }
 
+// form event listener
+function formEvent () {
+document.getElementById('form').addEventListener('submit', (e) => {
+  e.preventDefault()
+  const data = Object.fromEntries(new FormData(e.target).entries());
+
+  console.log(data.name)
+  console.log(currentPlayer.allData.uuid)
+
+  sendData(data.name, currentPlayer.allData.uuid)
+
+  //const remove = document.getElementById("remove");
+  //remove.remove()
+  
+ 
+})
+}
 
 
+async function sendData (name, uuid) {
+
+  await fetch('http://localhost:3000/game/score', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: name,
+        uuid: uuid,
+        
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+
+       console.log(data)
+        //maybe set state for a rerender
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+
+}
 
 
 
