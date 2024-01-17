@@ -129,7 +129,7 @@ const gameWon = async (coord) => {
       else {
         highScoreForm(coord)
         formEvent()
-        console.log('best score')
+       
       }
 
 
@@ -150,9 +150,6 @@ document.getElementById('form').addEventListener('submit', (e) => {
   e.preventDefault()
   const data = Object.fromEntries(new FormData(e.target).entries());
 
-  console.log(data.name)
-  console.log(currentPlayer.allData.uuid)
-
   sendData(data.name, currentPlayer.allData.uuid)
 
   //const remove = document.getElementById("remove");
@@ -169,7 +166,7 @@ async function sendData (name, uuid) {
       method: 'POST',
       body: JSON.stringify({
         name: name,
-        uuid: uuid,
+        id: uuid,
         
       }),
       headers: {
