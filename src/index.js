@@ -66,6 +66,15 @@ function picListener() {
   const pic = document.getElementById('container');
   pic.addEventListener('click', imageCoor)
 }
+
+// remove pic listener
+
+function removePicListener() {
+  
+  const pic = document.getElementById('container');
+  pic.removeEventListener('click', imageCoor)
+}
+
 //get coordinate of click
 
 function imageCoor(e) {
@@ -84,7 +93,7 @@ function imageCoor(e) {
 
   addCircle(coord)
   addMenu(coord, menuArray)
-
+  removePicListener()
 }
 
 //make api call to check coord
@@ -224,5 +233,6 @@ async function sendData(name, uuid) {
 export {
   checkCoord,
   currentGame,
+  picListener,
 };
 

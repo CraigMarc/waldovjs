@@ -1,15 +1,14 @@
 //import checkCoord from './index';
 import {
   checkCoord,
-
+  picListener,
 } from "./index";
 
-import GameStorage from "./gameStorage";
 
 
 const addMenu = (coord, menuArray) => {
   let [x, y] = coord
-  
+
 
   const menuContainer = document.createElement('div');
   menuContainer.classList.add('menuContainer');
@@ -22,11 +21,11 @@ const addMenu = (coord, menuArray) => {
     menuContainer.style.left = x - 240 + "px";
     menuContainer.style.top = y + 20 + "px";
   }
- 
+
 
   const addMenuItems = () => {
     for (let i = 0; i < menuArray.length; i++) {
-      
+
       const name = document.createElement('div');
       name.classList.add('button');
       name.textContent = menuArray[i]
@@ -54,12 +53,13 @@ const addMenu = (coord, menuArray) => {
     menuContainer.remove()
     const circle = document.getElementById("circle")
     circle.remove()
-
-
+    picListener()
 
   }
 
 }
+
+
 
 
 export default addMenu;

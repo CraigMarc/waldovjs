@@ -15,7 +15,7 @@ const addMessage = (coord, message, name) => {
     element.classList.add('message');
     element.style.position = 'absolute';
     element.style.left = x - 100 + "px";
-    element.style.top = y + 150 + "px";
+    element.style.top = y - 100 + "px";
   
     document.body.appendChild(element)
     
