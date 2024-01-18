@@ -10,6 +10,7 @@ import startGame from './startGame';
 import PlayerStorage from './playerData';
 import highScoreForm from './highScoreForm';
 import youWon from './youWon';
+import addHeader from './header';
 
 let currentPlayer = new PlayerStorage
 let currentGame = new GameStorage
@@ -30,6 +31,7 @@ function startNewGame(e) {
 
   const startRemove = document.getElementById('buttonContainer');
   startRemove.remove()
+  addHeader()
   addPic()
   picListener()
   startTimer()
