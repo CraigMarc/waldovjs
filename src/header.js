@@ -4,7 +4,34 @@ import wizard from './images/wizardCropped.jpg'
 
 let charArray = [waldo, wenda, wizard]
 
+const getHighScore = async () => {
+
+    //console.log(currentPlayer.allData.uuid)
+  
+  
+    try {
+  
+      const response = await fetch('http://localhost:3000/game/highscore')
+  
+      const gameData = await response.json();
+  
+    }
+  
+    catch (error) {
+      console.error("There has been a problem with your fetch operation:", error);
+      //add error message to dom
+      //errorDisplay()
+    }
+  
+  
+  }
+
+    
+  
+
 const addHeader = () => {
+    //******************************** if message: no high score 
+    getHighScore()
    
     const header = document.createElement('header');
     const headerContainer = document.createElement('div');

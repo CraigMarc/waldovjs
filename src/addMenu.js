@@ -30,27 +30,35 @@ const addMenu = (coord, menuArray) => {
 
       const name = document.createElement('div');
       name.classList.add('button');
-     
+      name.id = menuArray[i];
       //capitalize first letter
       let firstLetterCap = menuArray[i][0].toUpperCase()
       const remainingLetters = menuArray[i].slice(1)
       const capitalizedWord = firstLetterCap + remainingLetters
-     
       name.textContent = capitalizedWord
-      name.id = menuArray[i];
+      
+      const imgContainer = document.createElement('div');
+      
       const image = new Image();
       if (menuArray[i] == 'waldo') {
         image.src = waldo
+        
       }
       if (menuArray[i] == 'wenda') {
         image.src = wenda
+        
       }
       if (menuArray[i] == 'wizard') {
         image.src = wizard
+        
       }
       image.classList.add('menuImg');
-      name.appendChild(image)
+      image.id = menuArray[i];
+      imgContainer.appendChild(image)
+      name.appendChild(imgContainer)
+
       menuContainer.appendChild(name)
+     
     }
   }
 
@@ -68,8 +76,14 @@ const addMenu = (coord, menuArray) => {
   })
 
   function check(e) {
-
-    checkCoord(e.target.id, coord)
+    
+    if (e.target.id) {
+      checkCoord(e.target.id, coord)
+    }
+    if (e.target.parentElement.id) {
+      checkCoord(e.target.parentElement.id, coord)
+    }
+    
     menuContainer.remove()
     const circle = document.getElementById("circle")
     circle.remove()

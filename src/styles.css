@@ -34,8 +34,8 @@ form {
 }
 
 .menuImg {
-    width: 60px;
-    height: 80px;
+    width: 50px;
+    height: 60px;
 }
 
 .headerImg {
@@ -50,7 +50,7 @@ form {
 
 header {
     width: 100%;
-    height: 70px;
+    height: 60px;
    
    
 }
@@ -58,7 +58,7 @@ header {
 .headerContainer {
     display: flex;
     position: fixed;
-    height: 70px;
+    height: 60px;
     width: 100%;
     background-color: white;
     top: 0;

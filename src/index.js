@@ -40,7 +40,7 @@ function startNewGame(e) {
 function startTimer() {
   let uuid = self.crypto.randomUUID();
   currentPlayer.newData(uuid)
-  console.log(currentPlayer)
+ 
   startApi(uuid)
 }
 
