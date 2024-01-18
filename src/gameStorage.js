@@ -21,6 +21,11 @@ class GameData {
     get allData(){
       return this.charArray
     }
+
+   get deleteData() {
+    
+      return this.charArray.length = 0
+    }
   
   }
 

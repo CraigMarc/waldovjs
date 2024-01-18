@@ -38,6 +38,7 @@ function startNewGame(e) {
 function startTimer() {
   let uuid = self.crypto.randomUUID();
   currentPlayer.newData(uuid)
+  console.log(currentPlayer)
   startApi(uuid)
 }
 
@@ -164,6 +165,7 @@ function removeMessage() {
   const pic = document.getElementById('picContainer')
   win.remove()
   pic.remove()
+  currentGame.deleteData
   startGame()
   startEvent()
 }
@@ -180,6 +182,7 @@ function formEvent() {
     const pic = document.getElementById('picContainer')
     form.remove()
     pic.remove()
+    currentGame.deleteData
     startGame()
     startEvent()
 
