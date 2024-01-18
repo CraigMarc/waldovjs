@@ -30,7 +30,13 @@ const addMenu = (coord, menuArray) => {
 
       const name = document.createElement('div');
       name.classList.add('button');
-      name.textContent = menuArray[i]
+     
+      //capitalize first letter
+      let firstLetterCap = menuArray[i][0].toUpperCase()
+      const remainingLetters = menuArray[i].slice(1)
+      const capitalizedWord = firstLetterCap + remainingLetters
+     
+      name.textContent = capitalizedWord
       name.id = menuArray[i];
       const image = new Image();
       if (menuArray[i] == 'waldo') {
