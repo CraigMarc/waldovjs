@@ -6,7 +6,7 @@ const startGame = () => {
     const startContainer = document.createElement('div');
     startContainer.id = "buttonContainer"
     const heading = document.createElement('h1');
-    heading.textContent = "Where's Waldo";
+    heading.textContent = "Where's Waldo, Wenda and Wizard";
     const image1 = new Image();
     image1.src = waldo2;
     image1.classList.add('waldo1Pic');

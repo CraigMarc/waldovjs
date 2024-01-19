@@ -45,7 +45,7 @@ const addHeader = async () => {
   const headerContainer = document.createElement('div');
   headerContainer.classList.add('headerContainer');
   const titleDiv = document.createElement('div');
-  titleDiv.textContent = "Where's Waldo"
+  titleDiv.textContent = "Where's Waldo, Wenda and Wizard"
   const highScoreDiv = document.createElement('div');
   highScoreDiv.classList.add('highScoreContainer');
   highScoreDiv.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"

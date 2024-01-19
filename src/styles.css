@@ -12,14 +12,24 @@ body {}
 }
 
 .menuContainer {
+    display: flex;
+    flex-wrap: wrap;
     border: solid;
-    width: 150px;
-    height: 250px;
+    border-width: 0.1px;
+    width: 100px;
     background-color: white;
 }
 
 .button:hover {
     background-color: gray;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    padding-top: 5px;
 }
 
 .message {
