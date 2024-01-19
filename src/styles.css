@@ -73,3 +73,8 @@ header {
     background-color: white;
     top: 0;
 }
+
+.headImage {
+    width: 100px;
+    height: 100px;
+}

@@ -1,6 +1,6 @@
-import waldo from './images/waldoCropped.jpg'
-import wenda from './images/wendaCropped.jpg'
-import wizard from './images/wizardCropped.jpg'
+import waldo from './images/waldoHead.jpg'
+import wenda from './images/wendaHead.jpg'
+import wizard from './images/wizardHead.jpg'
 
 let charArray = [waldo, wenda, wizard]
 
