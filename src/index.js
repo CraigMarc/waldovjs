@@ -21,7 +21,7 @@ startGame()
 
 
 const startEvent = () => {
-  const start = document.getElementById('button');
+  const start = document.getElementById('startButton');
   start.addEventListener('click', startNewGame)
 }
 

@@ -47,7 +47,7 @@ const startGame = () => {
         image0.classList.add('waldo1Pic');
         const button = document.createElement('button');
         button.textContent = 'Start Game';
-        button.id = 'button'
+        button.id = 'startButton'
 
         imageContainer.appendChild(image0)
         startContainer.appendChild(picHeaderContainer)

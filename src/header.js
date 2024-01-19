@@ -12,7 +12,7 @@ const getHighScore = async () => {
     const response = await fetch('http://localhost:3000/game/highscore')
 
     const gameData = await response.json();
-    
+
     return gameData
   }
 
@@ -34,11 +34,18 @@ const addHeader = async () => {
 
   // convert to minutes and seconds
 
-  let seconds = highScoreData[0].score / 1000;
-   
+  console.log(highScoreData)
+  if (highScoreData.message == 'no high score') {
+    console.log(highScoreData.message == 'no high score')
+  }
+
+  if (highScoreData.message != 'no high score') {
+    let seconds = highScoreData[0].score / 1000;
+
     seconds = seconds % 3600;
-    const minutes = parseInt( seconds / 60 );
+    const minutes = parseInt(seconds / 60);
     seconds = Math.round(seconds % 60);
+  }
 
   const header = document.createElement('header');
   header.id = 'header'
@@ -48,7 +55,12 @@ const addHeader = async () => {
   titleDiv.textContent = "Where's Waldo, Wenda and Wizard"
   const highScoreDiv = document.createElement('div');
   highScoreDiv.classList.add('highScoreContainer');
+  if (highScoreData.message != 'no high score') {
   highScoreDiv.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"
+  }
+  else {
+    highScoreDiv.textContent = "No current high score"
+  }
   const picContainer = document.createElement('div');
   picContainer.classList.add('picContainer');
   for (let i = 0; i < charArray.length; i++) {
@@ -74,24 +86,24 @@ const addHeader = async () => {
   // add timer to header
 
   const startTime = Math.floor(Date.now() / 1000);
-  
+
   function startTimeCounter() {
-      let now = Math.floor(Date.now() / 1000); 
-      let diff = now - startTime;
-      let m = Math.floor(diff / 60); 
-      let s = Math.floor(diff % 60);
-      m = checkTime(m);
-      s = checkTime(s);
-       
-      document.getElementById("timer").textContent = m + ":" + s; 
-      setTimeout(startTimeCounter, 500); 
+    let now = Math.floor(Date.now() / 1000);
+    let diff = now - startTime;
+    let m = Math.floor(diff / 60);
+    let s = Math.floor(diff % 60);
+    m = checkTime(m);
+    s = checkTime(s);
+
+    document.getElementById("timer").textContent = m + ":" + s;
+    setTimeout(startTimeCounter, 500);
   }
-  
+
   function checkTime(i) {
-      if (i < 10) {i = "0" + i};  
-      return i;
+    if (i < 10) { i = "0" + i };
+    return i;
   }
-  
+
   startTimeCounter();
 
 
