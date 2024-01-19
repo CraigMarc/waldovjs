@@ -48,6 +48,7 @@ const startGame = () => {
         const button = document.createElement('button');
         button.textContent = 'Start Game';
         button.id = 'startButton'
+        button.value = i
 
         imageContainer.appendChild(image0)
         startContainer.appendChild(picHeaderContainer)

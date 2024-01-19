@@ -29,21 +29,20 @@ const getHighScore = async () => {
 
 
 const addHeader = async () => {
-  //******************************** if message: no high score 
+ 
   let highScoreData = await getHighScore()
 
   // convert to minutes and seconds
 
-  console.log(highScoreData)
-  if (highScoreData.message == 'no high score') {
-    console.log(highScoreData.message == 'no high score')
-  }
+ 
 
+  let minutes = ""
+  
   if (highScoreData.message != 'no high score') {
     let seconds = highScoreData[0].score / 1000;
-
+    
     seconds = seconds % 3600;
-    const minutes = parseInt(seconds / 60);
+    minutes = parseInt(seconds / 60);
     seconds = Math.round(seconds % 60);
   }
 
