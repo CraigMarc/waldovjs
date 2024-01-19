@@ -31,7 +31,18 @@ const getHighScore = async () => {
 const addHeader = async () => {
   //******************************** if message: no high score 
   let highScoreData = await getHighScore()
- 
+
+  // convert to minutes and seconds
+
+  let seconds = highScoreData[0].score / 1000;
+   
+    seconds = seconds % 3600;
+    const minutes = parseInt( seconds / 60 );
+    seconds = Math.round(seconds % 60);
+
+    console.log(minutes)
+    console.log(Math.round(seconds))
+
 
   const header = document.createElement('header');
   const headerContainer = document.createElement('div');
@@ -40,7 +51,7 @@ const addHeader = async () => {
   titleDiv.textContent = "Where's Waldo"
   const highScoreDiv = document.createElement('div');
   highScoreDiv.classList.add('highScoreContainer');
-  highScoreDiv.textContent = highScoreData[0].userName + " has the current best time of " + highScoreData[0].score
+  highScoreDiv.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"
   const picContainer = document.createElement('div');
   picContainer.classList.add('picContainer');
   for (let i = 0; i < charArray.length; i++) {
@@ -53,13 +64,40 @@ const addHeader = async () => {
     picDiv.appendChild(image)
     picContainer.appendChild(picDiv)
   }
-
+  const timerContainer = document.createElement('div');
+  timerContainer.id = "timer"
   headerContainer.appendChild(titleDiv)
   headerContainer.appendChild(picContainer)
+  headerContainer.appendChild(timerContainer)
   headerContainer.appendChild(highScoreDiv)
   header.appendChild(headerContainer)
 
   document.body.appendChild(header)
+
+  // add timer to header
+
+  const startTime = Math.floor(Date.now() / 1000);
+  
+  function startTimeCounter() {
+      let now = Math.floor(Date.now() / 1000); 
+      let diff = now - startTime;
+      let m = Math.floor(diff / 60); 
+      let s = Math.floor(diff % 60);
+      m = checkTime(m);
+      s = checkTime(s);
+       
+      document.getElementById("timer").textContent = m + ":" + s; 
+      setTimeout(startTimeCounter, 500); 
+  }
+  
+  function checkTime(i) {
+      if (i < 10) {i = "0" + i};  
+      return i;
+  }
+  
+  startTimeCounter();
+
+
 }
 
 export default addHeader; 
