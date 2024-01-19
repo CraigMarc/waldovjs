@@ -6,7 +6,7 @@ const youWon = (coord) => {
     element.id = 'youWon';
     element.style.position = 'absolute';
     element.style.left = x + "px";
-    element.style.top = y + "px";
+    element.style.top = y - 80 + "px";
     const text = document.createElement('h2');
     text.textContent = "You Won!"
 

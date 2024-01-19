@@ -40,11 +40,8 @@ const addHeader = async () => {
     const minutes = parseInt( seconds / 60 );
     seconds = Math.round(seconds % 60);
 
-    console.log(minutes)
-    console.log(Math.round(seconds))
-
-
   const header = document.createElement('header');
+  header.id = 'header'
   const headerContainer = document.createElement('div');
   headerContainer.classList.add('headerContainer');
   const titleDiv = document.createElement('div');

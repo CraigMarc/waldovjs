@@ -174,8 +174,10 @@ const gameWon = async (coord) => {
 function removeMessage() {
   const win = document.getElementById('youWon')
   const pic = document.getElementById('picContainer')
+  const header = document.getElementById('header')
   win.remove()
   pic.remove()
+  header.remove()
   currentGame.deleteData
   startGame()
   startEvent()
@@ -191,15 +193,15 @@ function formEvent() {
 
     const form = document.getElementById('form')
     const pic = document.getElementById('picContainer')
+    const header = document.getElementById('header')
     form.remove()
     pic.remove()
+    header.remove()
     currentGame.deleteData
     startGame()
     startEvent()
 
-    //const remove = document.getElementById("remove");
-    //remove.remove()
-
+    
 
   })
 }
