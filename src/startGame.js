@@ -20,18 +20,24 @@ const startGame = () => {
     const headImage3 = new Image();
     headImage3.src = wizard;
     headImage3.classList.add('headImage');
+    const picHeaderContainer = document.createElement('div');
+    picHeaderContainer.textContent = "The Beach"
+    const imageContainer = document.createElement('div');
+    imageContainer.id = "imageContainer"
     const image1 = new Image();
     image1.src = waldo2;
     image1.classList.add('waldo1Pic');
     const button = document.createElement('button');
     button.textContent = 'Start Game';
     button.id = 'button'
+    imageContainer.appendChild(image1)
     headingImages.appendChild(headImage1)
     headingImages.appendChild(headImage2)
     headingImages.appendChild(headImage3)
     startContainer.appendChild(heading)
     startContainer.appendChild(headingImages)
-    startContainer.appendChild(image1)
+    startContainer.appendChild(picHeaderContainer)
+    startContainer.appendChild(imageContainer)
     startContainer.appendChild(button)
     document.body.appendChild(startContainer);
 }
