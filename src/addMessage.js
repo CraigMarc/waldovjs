@@ -13,9 +13,9 @@ const addMessage = (coord, message, name) => {
       element.textContent = `You Found ${name}`
     }
     element.classList.add('message');
-    element.style.position = 'absolute';
-    element.style.left = x + "px";
-    element.style.top = y + "px";
+    element.style.position = 'fixed';
+    element.style.top = '50%';
+    element.style.left = '40%';
   
     document.body.appendChild(element)
     
