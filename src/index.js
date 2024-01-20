@@ -93,7 +93,6 @@ function removePicListener() {
 function imageCoor(e) {
 
   let coord = [e.offsetX, e.offsetY]
-  console.log(coord)
 
   let charArray = ['waldo', 'wenda', 'wizard']
   const charFoundArray = currentGame.allData.map((x) => x.character);
@@ -134,7 +133,7 @@ const checkCoord = async (name, coord) => {
       }
     }
 
-    addMessage(coord, message, name)
+    addMessage(message, name)
 
   }
 
@@ -158,7 +157,7 @@ const gameWon = async (coord) => {
 
     if (stopData.message == false) {
       console.log("you win")
-      youWon(coord)
+      youWon()
 
       setTimeout(removeMessage, 4000);
 

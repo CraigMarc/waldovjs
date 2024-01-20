@@ -29,18 +29,18 @@ const getHighScore = async (board) => {
 
 
 const addHeader = async (board) => {
- 
+
   let highScoreData = await getHighScore(board)
 
   // convert to minutes and seconds
 
- 
+
   let seconds = ''
   let minutes = ""
-  
+
   if (highScoreData.message != 'no high score') {
     seconds = highScoreData[0].score / 1000;
-    
+
     seconds = seconds % 3600;
     minutes = parseInt(seconds / 60);
     seconds = Math.round(seconds % 60);
@@ -55,7 +55,7 @@ const addHeader = async (board) => {
   const highScoreDiv = document.createElement('div');
   highScoreDiv.classList.add('highScoreContainer');
   if (highScoreData.message != 'no high score') {
-  highScoreDiv.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"
+    highScoreDiv.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"
   }
   else {
     highScoreDiv.textContent = "No current high score"
@@ -94,8 +94,18 @@ const addHeader = async (board) => {
     m = checkTime(m);
     s = checkTime(s);
 
-    document.getElementById("timer").textContent = m + ":" + s;
-    setTimeout(startTimeCounter, 500);
+    if (!document.getElementById("timer")) {
+      clearTimeout()
+      
+      
+    }
+    else {
+      document.getElementById("timer").textContent = m + ":" + s;
+      setTimeout(startTimeCounter, 500);
+    }
+   
+
+    
   }
 
   function checkTime(i) {

@@ -1,8 +1,7 @@
 // add message
 
-const addMessage = (coord, message, name) => {
+const addMessage = (message, name) => {
   
-    let [x, y] = coord
  
     const element = document.createElement('div');
     element.id = 'message';
