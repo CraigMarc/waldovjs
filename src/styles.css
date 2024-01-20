@@ -1,4 +1,8 @@
-body {}
+:root{ --myVariable : url(./images/waldo2.jpg) }
+
+body {
+    
+}
 
 
 .svgContainer {}
@@ -7,8 +11,12 @@ body {}
 
     height: 1926px;
     width: 2500px;
-    background-image: url(./images/waldo2.jpg);
-    background-size: 100% 100%;
+    
+    background-image: var(--myVariable);
+    /*
+    background-image: url(./images/waldo3.jpg);*/
+   
+    background-size: 100%;
 }
 
 .menuContainer {
@@ -70,6 +78,7 @@ header {
     position: fixed;
     height: 60px;
     width: 100%;
+    
     background-color: white;
     top: 0;
 }

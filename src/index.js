@@ -22,10 +22,7 @@ startGame()
 
 function startEvent () {
   const select = document.querySelectorAll('#startButton');
-  //start.addEventListener('click', startNewGame)
-console.log(select)
- // const select = document.querySelectorAll('.button');
-
+  
   select.forEach((button) => {
 
     button.addEventListener('click', startNewGame)
@@ -36,11 +33,11 @@ setTimeout(startEvent, 1000)
 //startEvent()
 
 function startNewGame(e) {
-  console.log(e.target.value)
+  
   const startRemove = document.getElementById('buttonContainer');
   startRemove.remove()
   addHeader()
-  addPic()
+  addPic(e.target.value)
   picListener()
   startTimer()
 }
