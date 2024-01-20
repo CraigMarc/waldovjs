@@ -84,3 +84,16 @@ header {
     width: 100px;
     height: 100px;
 }
+
+.gamesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#buttonContainer {
+    width: 100%;
+    text-align: center;
+  
+}

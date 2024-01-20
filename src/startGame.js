@@ -26,34 +26,41 @@ const startGame = () => {
     const headImage3 = new Image();
     headImage3.src = wizard;
     headImage3.classList.add('headImage');
-
+    const gamesContainer = document.createElement('div');
+    gamesContainer.classList.add('gamesContainer');
 
     headingImages.appendChild(headImage1)
     headingImages.appendChild(headImage2)
     headingImages.appendChild(headImage3)
     startContainer.appendChild(heading)
     startContainer.appendChild(headingImages)
+    startContainer.appendChild(gamesContainer)
 
     // game boards
 
     for (let i = 0; i < imageArray.length; i++) {
 
+        const boardContainer = document.createElement('div');
+        boardContainer.classList.add('boardContainer');
         const picHeaderContainer = document.createElement('div');
+        picHeaderContainer.classList.add('picHeaderContainer');
         picHeaderContainer.textContent = titleArray[i]
         const imageContainer = document.createElement('div');
         imageContainer.id = "imageContainer"
         const image0 = new Image();
         image0.src = imageArray[i];
-        image0.classList.add('waldo1Pic');
+        image0.classList.add('waldoBoardPic');
         const button = document.createElement('button');
         button.textContent = 'Start Game';
         button.id = 'startButton'
         button.value = i
 
         imageContainer.appendChild(image0)
-        startContainer.appendChild(picHeaderContainer)
-        startContainer.appendChild(imageContainer)
-        startContainer.appendChild(button)
+        boardContainer.appendChild(picHeaderContainer)
+        boardContainer.appendChild(imageContainer)
+        boardContainer.appendChild(button)
+        gamesContainer.appendChild(boardContainer)
+        
 
     }
 
