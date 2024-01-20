@@ -36,7 +36,7 @@ setTimeout(startEvent, 1000)
 
 function startNewGame(e) {
 
-  let boardArray = ['board1', 'board2', 'board3']
+  let boardArray = ['board1', 'board2', 'board3', 'board4']
   
   
   const startRemove = document.getElementById('buttonContainer');
@@ -93,6 +93,7 @@ function removePicListener() {
 function imageCoor(e) {
 
   let coord = [e.offsetX, e.offsetY]
+  console.log(coord)
 
   let charArray = ['waldo', 'wenda', 'wizard']
   const charFoundArray = currentGame.allData.map((x) => x.character);
@@ -112,7 +113,7 @@ function imageCoor(e) {
 //make api call to check coord
 
 const checkCoord = async (name, coord) => {
-  let boardArray = ['board1', 'board2', 'board3']
+  let boardArray = ['board1', 'board2', 'board3', 'board4']
   let [x, y] = coord
   
   let boardCheck = boardArray[currentBoard.allData.board]
@@ -146,7 +147,7 @@ const checkCoord = async (name, coord) => {
 
 const gameWon = async (coord) => {
 
-  let boardArray = ['board1', 'board2', 'board3']
+  let boardArray = ['board1', 'board2', 'board3', 'board4']
   let boardCheck = boardArray[currentBoard.allData.board]
 
   try {
@@ -222,7 +223,7 @@ function formEvent() {
 
 async function sendData(name, uuid) {
 
-  let boardArray = ['board1', 'board2', 'board3']
+  let boardArray = ['board1', 'board2', 'board3', 'board4']
   let boardCheck = boardArray[currentBoard.allData.board]
 
   await fetch('http://localhost:3000/game/score', {
