@@ -17,6 +17,7 @@ const startGame = () => {
     const heading = document.createElement('h1');
     heading.textContent = "Where's Waldo, Wenda and Wizard";
     const headingImages = document.createElement('div');
+    headingImages.classList.add('headingImages');
     const headImage1 = new Image();
     headImage1.src = waldo;
     headImage1.classList.add('headImage');
