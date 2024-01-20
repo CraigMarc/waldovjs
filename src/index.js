@@ -11,9 +11,11 @@ import PlayerStorage from './playerData';
 import highScoreForm from './highScoreForm';
 import youWon from './youWon';
 import addHeader from './header';
+import BoardStorage from './boardStorage';
 
 let currentPlayer = new PlayerStorage
 let currentGame = new GameStorage
+let currentBoard = new BoardStorage
 
 
 //start game and add event listener
@@ -38,6 +40,7 @@ function startNewGame(e) {
   startRemove.remove()
   addHeader()
   addPic(e.target.value)
+  currentBoard.newData(e.target.value)
   picListener()
   startTimer()
 }
@@ -106,12 +109,15 @@ function imageCoor(e) {
 //make api call to check coord
 
 const checkCoord = async (name, coord) => {
-
+  let boardArray = ['board1', 'board2', 'board3']
   let [x, y] = coord
+  console.log(coord)
+  console.log(boardArray[currentBoard.allData.board])
+  let boardCheck = boardArray[currentBoard.allData.board]
 
   try {
 
-    const response = await fetch(`http://localhost:3000/game?char_name=${name}&x=${x}&y=${y}`)
+    const response = await fetch(`http://localhost:3000/game?pic_name=${boardCheck}&char_name=${name}&x=${x}&y=${y}`)
 
     const gameData = await response.json();
 

@@ -1,4 +1,4 @@
-:root{ --myVariable : url(./images/waldo2.jpg) }
+
 
 body {
     
@@ -12,11 +12,8 @@ body {
     height: 1926px;
     width: 2500px;
     
-    background-image: var(--myVariable);
-    /*
-    background-image: url(./images/waldo3.jpg);*/
-   
-    background-size: 100%;
+    background-image: url(./images/waldo3.jpg);
+    background-size: 100% 100%;
 }
 
 .menuContainer {
