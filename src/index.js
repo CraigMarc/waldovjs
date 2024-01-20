@@ -35,10 +35,13 @@ setTimeout(startEvent, 1000)
 //startEvent()
 
 function startNewGame(e) {
+
+  let boardArray = ['board1', 'board2', 'board3']
+  
   
   const startRemove = document.getElementById('buttonContainer');
   startRemove.remove()
-  addHeader()
+  addHeader(boardArray[e.target.value])
   addPic(e.target.value)
   currentBoard.newData(e.target.value)
   picListener()
@@ -111,8 +114,7 @@ function imageCoor(e) {
 const checkCoord = async (name, coord) => {
   let boardArray = ['board1', 'board2', 'board3']
   let [x, y] = coord
-  console.log(coord)
-  console.log(boardArray[currentBoard.allData.board])
+  
   let boardCheck = boardArray[currentBoard.allData.board]
 
   try {
@@ -144,12 +146,12 @@ const checkCoord = async (name, coord) => {
 
 const gameWon = async (coord) => {
 
-  //console.log(currentPlayer.allData.uuid)
-
+  let boardArray = ['board1', 'board2', 'board3']
+  let boardCheck = boardArray[currentBoard.allData.board]
 
   try {
 
-    const response = await fetch(`http://localhost:3000/game/end?id=${currentPlayer.allData.uuid}`)
+    const response = await fetch(`http://localhost:3000/game/end?pic_name=${boardCheck}&id=${currentPlayer.allData.uuid}`)
 
     const stopData = await response.json();
 
@@ -220,11 +222,15 @@ function formEvent() {
 
 async function sendData(name, uuid) {
 
+  let boardArray = ['board1', 'board2', 'board3']
+  let boardCheck = boardArray[currentBoard.allData.board]
+
   await fetch('http://localhost:3000/game/score', {
     method: 'POST',
     body: JSON.stringify({
       name: name,
       id: uuid,
+      pic_name: boardCheck,
 
     }),
     headers: {

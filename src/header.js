@@ -4,12 +4,12 @@ import wizard from './images/wizardHead.jpg'
 
 let charArray = [waldo, wenda, wizard]
 
-const getHighScore = async () => {
+const getHighScore = async (board) => {
 
 
   try {
 
-    const response = await fetch('http://localhost:3000/game/highscore')
+    const response = await fetch(`http://localhost:3000/game/highscore?pic_name=${board}`)
 
     const gameData = await response.json();
 
@@ -28,18 +28,18 @@ const getHighScore = async () => {
 
 
 
-const addHeader = async () => {
+const addHeader = async (board) => {
  
-  let highScoreData = await getHighScore()
+  let highScoreData = await getHighScore(board)
 
   // convert to minutes and seconds
 
  
-
+  let seconds = ''
   let minutes = ""
   
   if (highScoreData.message != 'no high score') {
-    let seconds = highScoreData[0].score / 1000;
+    seconds = highScoreData[0].score / 1000;
     
     seconds = seconds % 3600;
     minutes = parseInt(seconds / 60);
