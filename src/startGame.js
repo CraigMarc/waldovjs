@@ -50,15 +50,19 @@ const startGame = () => {
         const image0 = new Image();
         image0.src = imageArray[i];
         image0.classList.add('waldoBoardPic');
+        const startButtonContainer = document.createElement('div');
+        startButtonContainer.classList.add('startButtonContainer');
         const button = document.createElement('button');
         button.textContent = 'Start Game';
         button.id = 'startButton'
         button.value = i
 
+
+        startButtonContainer.appendChild(button)
         imageContainer.appendChild(image0)
         boardContainer.appendChild(picHeaderContainer)
         boardContainer.appendChild(imageContainer)
-        boardContainer.appendChild(button)
+        boardContainer.appendChild(startButtonContainer)
         gamesContainer.appendChild(boardContainer)
         
 

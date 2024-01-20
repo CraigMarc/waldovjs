@@ -1,7 +1,7 @@
 
 
 body {
-    
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 
@@ -96,4 +96,23 @@ header {
     width: 100%;
     text-align: center;
   
+}
+
+.picHeaderContainer {
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.startButtonContainer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#startButton {
+    font-size: 18px;
+    border-radius: 20px;
+    width: 150px;
+    height: 40px;
 }
