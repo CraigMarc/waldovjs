@@ -73,11 +73,37 @@ header {
 .headerContainer {
     display: flex;
     position: fixed;
+   
+    align-items: center;
+    justify-content: center;
     height: 60px;
     width: 100%;
-    
+    gap: 20px;
     background-color: white;
     top: 0;
+    
+}
+
+@media only screen and (max-width: 500px) {
+    .headerContainer {
+      gap: 5px;
+    }
+  }
+
+#timer {
+    font-size: 25px;
+}
+
+.highScoreDiv {
+    padding-right: 15px;
+}
+
+.highScoreButton {
+    border-radius: 10px;
+}
+
+.scoreContainer {
+    background-color: white;
 }
 
 .headImage {

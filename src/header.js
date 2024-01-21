@@ -32,6 +32,42 @@ const addHeader = async (board) => {
 
   let highScoreData = await getHighScore(board)
 
+  // add event listener for high score button
+
+  function HighScoreEvent() {
+    const button = document.querySelector('.highScoreButton');
+  
+      button.addEventListener('click', displayScore)
+  
+    
+  }
+  
+  function displayScore () {
+  
+    const scoreContainer = document.createElement('div');
+    scoreContainer.style.position = 'fixed';
+    scoreContainer.style.top = '30%';
+    scoreContainer.style.left = '40%';
+    scoreContainer.classList.add('scoreContainer');
+    if (highScoreData.message != 'no high score') {
+      scoreContainer.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"
+    }
+    else {
+      scoreContainer.textContent = "No current high score"
+    }
+    document.body.appendChild(scoreContainer)
+
+    setTimeout(removeScoreCard, 2000);
+    
+    function removeScoreCard () {
+      scoreContainer.remove()
+    }
+  
+  }
+  
+
+  
+
   // convert to minutes and seconds
 
 
@@ -50,16 +86,21 @@ const addHeader = async (board) => {
   header.id = 'header'
   const headerContainer = document.createElement('div');
   headerContainer.classList.add('headerContainer');
-  const titleDiv = document.createElement('div');
-  titleDiv.textContent = "Where's Waldo, Wenda and Wizard"
+  //const titleDiv = document.createElement('div');
+  // titleDiv.textContent = "Where's Waldo, Wenda and Wizard"
   const highScoreDiv = document.createElement('div');
+  highScoreDiv.classList.add('highScoreDiv');
+  const highScoreButton = document.createElement('button');
+  highScoreButton.textContent = "See High Score"
+  highScoreButton.classList.add('highScoreButton');
+  /*
   highScoreDiv.classList.add('highScoreContainer');
   if (highScoreData.message != 'no high score') {
     highScoreDiv.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"
   }
   else {
     highScoreDiv.textContent = "No current high score"
-  }
+  }*/
   const picContainer = document.createElement('div');
   picContainer.classList.add('picContainer');
   for (let i = 0; i < charArray.length; i++) {
@@ -74,7 +115,8 @@ const addHeader = async (board) => {
   }
   const timerContainer = document.createElement('div');
   timerContainer.id = "timer"
-  headerContainer.appendChild(titleDiv)
+  // headerContainer.appendChild(titleDiv)
+  highScoreDiv.appendChild(highScoreButton)
   headerContainer.appendChild(picContainer)
   headerContainer.appendChild(timerContainer)
   headerContainer.appendChild(highScoreDiv)
@@ -96,16 +138,16 @@ const addHeader = async (board) => {
 
     if (!document.getElementById("timer")) {
       clearTimeout()
-      
-      
+
+
     }
     else {
       document.getElementById("timer").textContent = m + ":" + s;
       setTimeout(startTimeCounter, 500);
     }
-   
 
-    
+
+
   }
 
   function checkTime(i) {
@@ -114,6 +156,7 @@ const addHeader = async (board) => {
   }
 
   startTimeCounter();
+  HighScoreEvent()
 
 
 }
