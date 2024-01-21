@@ -47,7 +47,7 @@ const addHeader = async (board) => {
     const scoreContainer = document.createElement('div');
     scoreContainer.style.position = 'fixed';
     scoreContainer.style.top = '30%';
-    scoreContainer.style.left = '40%';
+    scoreContainer.style.right = '5%';
     scoreContainer.classList.add('scoreContainer');
     if (highScoreData.message != 'no high score') {
       scoreContainer.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"
@@ -91,7 +91,7 @@ const addHeader = async (board) => {
   const highScoreDiv = document.createElement('div');
   highScoreDiv.classList.add('highScoreDiv');
   const highScoreButton = document.createElement('button');
-  highScoreButton.textContent = "See High Score"
+  highScoreButton.textContent = "See Best Time"
   highScoreButton.classList.add('highScoreButton');
   /*
   highScoreDiv.classList.add('highScoreContainer');
