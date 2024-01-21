@@ -2,6 +2,7 @@
 
 body {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    margin: 0;
 }
 
 
@@ -49,6 +50,37 @@ body {
 
 form {
     background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.formContainer > p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    
+}
+
+.formContainer > label {
+   font-weight: bold;
+   font-size: 18px;
+    
+}
+
+#name {
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.submitHighScore {
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 5px 15px 5px 15px
+}
+
+.inputDiv {
+    padding-top: 5px;
+    padding-bottom: 15px;
 }
 
 .menuImg {
@@ -103,6 +135,10 @@ header {
 
 .highScoreButton {
     border-radius: 10px;
+}
+
+.highScoreName {
+    font-weight: bold;
 }
 
 .scoreContainer {

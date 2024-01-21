@@ -6,15 +6,17 @@ const highScoreForm = (coord) => {
     const form = document.createElement('form');
     form.action = ''
     form.id = 'form'
-    form.style.position = 'absolute';
-    form.style.left = x  + "px";
-    form.style.top = y + "px";
+    form.style.position = 'fixed';
+    form.style.top = '50%';
+    form.style.left = '40%';
     const formContainer = document.createElement('div');
     formContainer.classList.add('formContainer');
     const title = document.createElement('p');
-    title.textContent = "You have the new best time enter your name."
+    title.textContent = "You have the new best time!  Enter your name."
     const label1 = document.createElement('label');
     label1.textContent = "Name"
+    const inputDiv = document.createElement('div');
+    inputDiv.classList.add('inputDiv');
     const input1 = document.createElement('input');
     input1.name = "name"
     input1.type = "text"
@@ -23,15 +25,17 @@ const highScoreForm = (coord) => {
     const submitContainer = document.createElement('div');
     submitContainer.classList.add('submitContainer');
     const button = document.createElement('button');
+    button.classList.add('submitHighScore');
     button.type = 'submit'
     button.textContent = 'Submit'
 
     //append elements
 
+    inputDiv.appendChild(input1)
     form.appendChild(formContainer);
     formContainer.appendChild(title);
     formContainer.appendChild(label1);
-    formContainer.appendChild(input1);
+    formContainer.appendChild(inputDiv);
     formContainer.appendChild(submitContainer)
     submitContainer.appendChild(button)
     

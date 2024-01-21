@@ -50,7 +50,15 @@ const addHeader = async (board) => {
     scoreContainer.style.right = '5%';
     scoreContainer.classList.add('scoreContainer');
     if (highScoreData.message != 'no high score') {
-      scoreContainer.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"
+      const span = document.createElement('span');
+      span.classList.add('highScoreName');
+      span.textContent = highScoreData[0].userName
+      scoreContainer.appendChild(span)
+      const span2 = document.createElement('span');
+      span2.textContent = " has the current best time of " + minutes + " minutes " + seconds + " seconds"
+      
+      scoreContainer.appendChild(span)
+      scoreContainer.appendChild(span2)
     }
     else {
       scoreContainer.textContent = "No current high score"
