@@ -20,13 +20,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     border: solid;
+    border-radius: 5px;
     border-width: 0.1px;
-    width: 100px;
+    width: 110px;
     background-color: white;
 }
 
 .button:hover {
-    background-color: gray;
+    background-color: lightgray;
 }
 
 .button {
@@ -35,13 +36,15 @@ body {
     justify-content: center;
     width: 100px;
     padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .message {
-    width: 200px;
-    height: 70px;
-    border: solid;
-    background-color: white;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    background-color: gray;
+    color: white;
 }
 
 form {
