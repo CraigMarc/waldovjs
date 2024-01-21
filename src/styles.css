@@ -163,3 +163,10 @@ header {
     width: 100%;
     height: 192px;
 }
+
+#youWon {
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    background-color: gray;
+    color: white;
+}
