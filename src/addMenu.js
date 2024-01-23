@@ -17,11 +17,11 @@ const addMenu = (coord, menuArray) => {
   menuContainer.style.position = 'absolute';
   if (x < 1500) {
     menuContainer.style.left = x + 50 + "px";
-    menuContainer.style.top = y + 20 + "px";
+    menuContainer.style.top = y - 30 + "px";
   }
   else {
-    menuContainer.style.left = x - 240 + "px";
-    menuContainer.style.top = y + 20 + "px";
+    menuContainer.style.left = x - 150 + "px";
+    menuContainer.style.top = y - 30 + "px";
   }
 
 

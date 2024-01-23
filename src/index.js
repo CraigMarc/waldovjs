@@ -169,6 +169,7 @@ const gameWon = async (coord) => {
 
     }
     else {
+      stopTimeCounter()
       highScoreForm(coord)
       formEvent()
 
