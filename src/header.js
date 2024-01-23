@@ -25,6 +25,43 @@ const getHighScore = async (board) => {
 
 }
 
+// add timer to header
+
+let counter = 0;
+let interval;
+
+function stopTimeCounter() {
+  clearInterval(interval);
+ 
+}
+
+function convertSec(cnt) {
+  let sec = cnt % 60;
+  let min = Math.floor(cnt / 60);
+  if (sec < 10) {
+    if (min < 10) {
+      return "0" + min + ":0" + sec;
+    } else {
+      return min + ":0" + sec;
+    }
+  } else if ((min < 10) && (sec >= 10)) {
+    return "0" + min + ":" + sec;
+  } else {
+    return min + ":" + sec;
+  }
+}
+
+function startTimeCounter() {
+  counter = 0
+  
+  interval = setInterval(function() {
+    
+    document.getElementById("timer").textContent = convertSec(counter++);
+  }, 1000);
+}
+
+
+
 
 
 
@@ -47,7 +84,7 @@ const addHeader = async (board) => {
     const scoreContainer = document.createElement('div');
     scoreContainer.style.position = 'fixed';
     scoreContainer.style.top = '30%';
-    scoreContainer.style.right = '5%';
+    scoreContainer.style.right = '35%';
     scoreContainer.classList.add('scoreContainer');
     if (highScoreData.message != 'no high score') {
       const span = document.createElement('span');
@@ -72,8 +109,6 @@ const addHeader = async (board) => {
     }
   
   }
-  
-
   
 
   // convert to minutes and seconds
@@ -101,14 +136,7 @@ const addHeader = async (board) => {
   const highScoreButton = document.createElement('button');
   highScoreButton.textContent = "See Best Time"
   highScoreButton.classList.add('highScoreButton');
-  /*
-  highScoreDiv.classList.add('highScoreContainer');
-  if (highScoreData.message != 'no high score') {
-    highScoreDiv.textContent = highScoreData[0].userName + " has the current best time of " + minutes + " minutes " + seconds + " seconds"
-  }
-  else {
-    highScoreDiv.textContent = "No current high score"
-  }*/
+  
   const picContainer = document.createElement('div');
   picContainer.classList.add('picContainer');
   for (let i = 0; i < charArray.length; i++) {
@@ -132,41 +160,16 @@ const addHeader = async (board) => {
 
   document.body.appendChild(header)
 
-  // add timer to header
-
-  const startTime = Math.floor(Date.now() / 1000);
-
-  function startTimeCounter() {
-    let now = Math.floor(Date.now() / 1000);
-    let diff = now - startTime;
-    let m = Math.floor(diff / 60);
-    let s = Math.floor(diff % 60);
-    m = checkTime(m);
-    s = checkTime(s);
-
-    if (!document.getElementById("timer")) {
-      clearTimeout()
-
-
-    }
-    else {
-      document.getElementById("timer").textContent = m + ":" + s;
-      setTimeout(startTimeCounter, 500);
-    }
-
-
-
-  }
-
-  function checkTime(i) {
-    if (i < 10) { i = "0" + i };
-    return i;
-  }
-
-  startTimeCounter();
+  
+  startTimeCounter()
+  
   HighScoreEvent()
 
 
 }
 
-export default addHeader; 
+//export default addHeader; 
+export {
+ addHeader,
+ stopTimeCounter
+};
