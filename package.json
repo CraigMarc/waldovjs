@@ -6,12 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
-    "pushgit": "git subtree push --prefix dist origin gh-pages"
+    "pushgit": "git subtree push --prefix dist origin gh-pages",
+    "build": "webpack --mode production"
   },
   "author": "cm",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.6.0",
     "style-loader": "^3.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
