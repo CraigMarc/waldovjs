@@ -7,9 +7,11 @@ const addMessage = (message, name) => {
     element.id = 'message';
     if (message == false) {
       element.textContent = "Try Again"
+      element.style.backgroundColor = 'red'
     }
     if (message == true) {
       element.textContent = `You Found ${name}`
+      element.style.backgroundColor = 'green'
     }
     element.classList.add('message');
     element.style.position = 'fixed';
