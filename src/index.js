@@ -118,7 +118,7 @@ function imageCoor(e) {
 const checkCoord = async (name, coord) => {
   let boardArray = ['board1', 'board2', 'board3', 'board4']
   let [x, y] = coord
-  
+  console.log(coord)
   let boardCheck = boardArray[currentBoard.allData.board]
 
   try {
