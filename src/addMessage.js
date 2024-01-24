@@ -14,10 +14,7 @@ const addMessage = (message, name) => {
       element.style.backgroundColor = 'green'
     }
     element.classList.add('message');
-    element.style.position = 'fixed';
-    element.style.top = '50%';
-    element.style.left = '40%';
-  
+   
     document.body.appendChild(element)
     
     setTimeout(removeMessage, 1000);

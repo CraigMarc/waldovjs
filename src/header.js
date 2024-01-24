@@ -82,9 +82,11 @@ const addHeader = async (board) => {
   function displayScore () {
   
     const scoreContainer = document.createElement('div');
+    /*
     scoreContainer.style.position = 'fixed';
     scoreContainer.style.top = '30%';
     scoreContainer.style.right = '35%';
+    */
     scoreContainer.classList.add('scoreContainer');
     if (highScoreData.message != 'no high score') {
       const span = document.createElement('span');
