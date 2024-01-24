@@ -6,11 +6,6 @@ const highScoreForm = (coord) => {
     const form = document.createElement('form');
     form.action = ''
     form.id = 'form'
-    /*
-    form.style.position = 'fixed';
-    form.style.top = '50%';
-    form.style.left = '40%';
-    */
     const formContainer = document.createElement('div');
     formContainer.classList.add('formContainer');
     const title = document.createElement('p');
