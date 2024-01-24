@@ -27,14 +27,6 @@ const getHighScore = async (board) => {
 
 // add timer to header
 
-let counter = 0;
-let interval;
-
-function stopTimeCounter() {
-  clearInterval(interval);
- 
-}
-
 function convertSec(cnt) {
   let sec = cnt % 60;
   let min = Math.floor(cnt / 60);
@@ -51,8 +43,15 @@ function convertSec(cnt) {
   }
 }
 
-function startTimeCounter() {
-  counter = 0
+let interval;
+
+function startTimeCounter(stop) {
+  
+  let counter = 0
+  if (stop == true) {
+    clearInterval(interval);
+    return "stop"
+  }
   
   interval = setInterval(function() {
     
@@ -163,6 +162,7 @@ const addHeader = async (board) => {
   
   startTimeCounter()
   
+  
   HighScoreEvent()
 
 
@@ -171,5 +171,5 @@ const addHeader = async (board) => {
 //export default addHeader; 
 export {
  addHeader,
- stopTimeCounter
+ startTimeCounter
 };

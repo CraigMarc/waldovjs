@@ -14,7 +14,7 @@ import youWon from './youWon';
 import BoardStorage from './boardStorage';
 import {
   addHeader,
-  stopTimeCounter,
+  startTimeCounter,
 } from "./header";
 
 let currentPlayer = new PlayerStorage
@@ -161,7 +161,7 @@ const gameWon = async (coord) => {
 
     if (stopData.message == false) {
       console.log("you win")
-      stopTimeCounter()
+      startTimeCounter(true)
       youWon()
       setTimeout(removeMessage, 4000);
 
@@ -169,7 +169,7 @@ const gameWon = async (coord) => {
 
     }
     else {
-      stopTimeCounter()
+      startTimeCounter(true)
       highScoreForm(coord)
       formEvent()
 
