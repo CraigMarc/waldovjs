@@ -9,7 +9,8 @@ const getHighScore = async (board) => {
 
   try {
 
-    const response = await fetch(`http://localhost:3000/game/highscore?pic_name=${board}`)
+    //const response = await fetch(`http://localhost:3000/game/highscore?pic_name=${board}`)
+    const response = await fetch(`https://blogapi1200.fly.dev/game/highscore?pic_name=${board}`)
 
     const gameData = await response.json();
 

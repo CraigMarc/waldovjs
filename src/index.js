@@ -26,9 +26,9 @@ let currentBoard = new BoardStorage
 startGame()
 
 
-function startEvent () {
+function startEvent() {
   const select = document.querySelectorAll('#startButton');
-  
+
   select.forEach((button) => {
 
     button.addEventListener('click', startNewGame)
@@ -41,8 +41,8 @@ setTimeout(startEvent, 1000)
 function startNewGame(e) {
 
   let boardArray = ['board1', 'board2', 'board3', 'board4']
-  
-  
+
+
   const startRemove = document.getElementById('buttonContainer');
   startRemove.remove()
   addHeader(boardArray[e.target.value])
@@ -55,7 +55,7 @@ function startNewGame(e) {
 function startTimer() {
   let uuid = self.crypto.randomUUID();
   currentPlayer.newData(uuid)
- 
+
   startApi(uuid)
 }
 
@@ -63,7 +63,8 @@ async function startApi(uuid) {
 
   try {
 
-    const response = await fetch(`http://localhost:3000/game/start?id=${uuid}`)
+    //const response = await fetch(`http://localhost:3000/game/start?id=${uuid}`)
+    const response = await fetch(`https://blogapi1200.fly.dev/game/start?id=${uuid}`)
 
     const startData = await response.json();
 
@@ -87,7 +88,7 @@ function picListener() {
 // remove pic listener
 
 function removePicListener() {
-  
+
   const pic = document.getElementById('container');
   pic.removeEventListener('click', imageCoor)
 }
@@ -123,7 +124,8 @@ const checkCoord = async (name, coord) => {
 
   try {
 
-    const response = await fetch(`http://localhost:3000/game?pic_name=${boardCheck}&char_name=${name}&x=${x}&y=${y}`)
+    //const response = await fetch(`http://localhost:3000/game?pic_name=${boardCheck}&char_name=${name}&x=${x}&y=${y}`)
+    const response = await fetch(`https://blogapi1200.fly.dev/game?pic_name=${boardCheck}&char_name=${name}&x=${x}&y=${y}`)
 
     const gameData = await response.json();
 
@@ -155,7 +157,8 @@ const gameWon = async (coord) => {
 
   try {
 
-    const response = await fetch(`http://localhost:3000/game/end?pic_name=${boardCheck}&id=${currentPlayer.allData.uuid}`)
+    //const response = await fetch(`http://localhost:3000/game/end?pic_name=${boardCheck}&id=${currentPlayer.allData.uuid}`)
+    const response = await fetch(`https://blogapi1200.fly.dev/game/end?pic_name=${boardCheck}&id=${currentPlayer.allData.uuid}`)
 
     const stopData = await response.json();
 
@@ -219,7 +222,7 @@ function formEvent() {
     startGame()
     startEvent()
 
-    
+
 
   })
 }
@@ -230,7 +233,8 @@ async function sendData(name, uuid) {
   let boardArray = ['board1', 'board2', 'board3', 'board4']
   let boardCheck = boardArray[currentBoard.allData.board]
 
-  await fetch('http://localhost:3000/game/score', {
+  //await fetch('http://localhost:3000/game/score', {
+  await fetch('https://blogapi1200.fly.dev/game/score', {
     method: 'POST',
     body: JSON.stringify({
       name: name,
