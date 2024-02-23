@@ -4,4 +4,4 @@ This is the repo for a Where's Waldo game where you search through Where's Waldo
 
 The repo is live [here](https://subtle-daifuku-4bb302.netlify.app/)
 
-The repo for the API is here (https://github.com/CraigMarc/waldo-api)
+The repo for the API is [here] (https://github.com/CraigMarc/waldo-api)
