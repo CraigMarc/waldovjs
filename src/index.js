@@ -101,7 +101,7 @@ function imageCoor(e) {
 
   let charArray = ['waldo', 'wenda', 'wizard']
   const charFoundArray = currentGame.allData.map((x) => x.character);
-
+  
   // get array with remaining characters to add to the menu
 
   const menuArray = charArray.filter(function (x) {
@@ -119,7 +119,7 @@ function imageCoor(e) {
 const checkCoord = async (name, coord) => {
   let boardArray = ['board1', 'board2', 'board3', 'board4']
   let [x, y] = coord
-  console.log(coord)
+  
   let boardCheck = boardArray[currentBoard.allData.board]
 
   try {
