@@ -3,7 +3,7 @@
 const addMessage = (message, name) => {
 
     let messageName = name.charAt(0).toUpperCase + name.slice(1)
-    console.log(messageName)
+    
   
     const element = document.createElement('div');
     element.id = 'message';
