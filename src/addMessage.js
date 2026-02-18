@@ -1,8 +1,9 @@
 // add message
 
 const addMessage = (message, name) => {
+
+    let messageName = name.charAt(0).toUpperCase + name.slice(1)
   
- 
     const element = document.createElement('div');
     element.id = 'message';
     if (message == false) {
@@ -10,7 +11,7 @@ const addMessage = (message, name) => {
       element.style.backgroundColor = 'red'
     }
     if (message == true) {
-      element.textContent = `You Found ${name}`
+      element.textContent = `You Found ${messageName}`
       element.style.backgroundColor = 'green'
     }
     element.classList.add('message');
